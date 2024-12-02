@@ -5,12 +5,12 @@ const CONSOLE_STYLE_PREFIX = "%c" as const;
 export function console$(input: ConsoleInput): void {
   const parts: StylePart[] =
     typeof input === "string"
-      ? [style({})`${input}`].flatMap((r) => r.parts)
+      ? [style({})`${input}`].flatMap((r: StyledResult) => r.parts)
       : "parts" in input
-      ? input.parts
-      : Array.isArray(input)
-      ? input
-      : [input];
+        ? input.parts
+        : Array.isArray(input)
+          ? input
+          : [input];
 
   const [output, ...styles] = parts.reduce<[string, ...string[]]>(
     ([out, ...styles], part) => [

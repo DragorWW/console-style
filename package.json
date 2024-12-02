@@ -1,11 +1,29 @@
 {
-  "name": "console-x",
+  "name": "console-style",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "✨ Styled console for and browser 🎨 💅",
+  "main": "dist/console$.js",
+  "types": "dist/console$.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx}\""
   },
+  "keywords": [
+    "console",
+    "styling",
+    "colors",
+    "chalk"
+  ],
   "author": "DragorWW <dragorww@gmail.com>",
   "license": "MIT",
-  "description": "easy console.log styles 💅"
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "rimraf": "^5.0.0",
+    "prettier": "^3.1.0"
+  }
 }
