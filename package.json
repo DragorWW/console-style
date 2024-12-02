@@ -1,0 +1,11 @@
+{
+  "name": "console-x",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DragorWW <dragorww@gmail.com>",
+  "license": "MIT",
+  "description": "easy console.log styles 💅"
+}
