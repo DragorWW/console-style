@@ -1,7 +1,15 @@
 {
   "name": "@dragorww/console-style",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "type": "module",
   "homepage": "https://dragorww.github.io/console-style/",
+  "exports": {
+    ".": {
+      "import": "./dist/console$.js",
+      "require": "./dist/console$.cjs.js",
+      "types": "./dist/console$.d.ts"
+    }
+  },
   "description": "✨ Styled console.log() for and browser 🎨 💅",
   "repository": {
     "type": "git",
@@ -10,10 +18,6 @@
   "bugs": {
     "url": "https://github.com/DragorWW/console-style/issues"
   },
-  "main": "dist/console$.js",
-  "module": "dist/console$.mjs",
-  "browser": "dist/console$.umd.js",
-  "types": "dist/console$.d.ts",
   "files": [
     "dist"
   ],
@@ -21,9 +25,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npm run build:cjs && npm run build:esm",
-    "build:cjs": "tsc",
-    "build:esm": "vite build",
+    "build": "vite build",
     "build:site": "npm run build && vite build -c vite.site.config.ts",
     "clean": "rimraf dist dist-site",
     "dev": "vite -c vite.site.config.ts",
@@ -41,12 +43,13 @@
   "author": "DragorWW <dragorww@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "rimraf": "^5.0.0",
-    "prettier": "^3.1.0",
-    "vitest": "^1.0.0",
+    "@types/node": "^20.0.0",
     "@vitest/coverage-v8": "^1.0.0",
+    "prettier": "^3.1.0",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.0",
     "vite": "^5.0.0",
-    "@types/node": "^20.0.0"
+    "vite-plugin-dts": "^4.3.0",
+    "vitest": "^1.0.0"
   }
 }
