@@ -2,7 +2,14 @@
   "name": "@dragorww/console-style",
   "version": "1.0.0",
   "homepage": "https://dragorww.github.io/console-style/",
-  "description": "✨ Styled console for and browser 🎨 💅",
+  "description": "✨ Styled console.log() for and browser 🎨 💅",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DragorWW/console-style.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DragorWW/console-style/issues"
+  },
   "main": "dist/console$.js",
   "module": "dist/console$.mjs",
   "browser": "dist/console$.umd.js",

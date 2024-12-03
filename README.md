@@ -1,6 +1,9 @@
-# Console$ 🎨
+# `@dragorww/console-style`
 
-```
+[![npm version](https://badge.fury.io/js/%40dragorww%2Fconsole-style.svg)](https://www.npmjs.com/package/@dragorww/console-style)
+[![GitHub license](https://img.shields.io/github/license/DragorWW/console-style)](https://github.com/DragorWW/console-style/blob/main/LICENSE)
+
+```javascript
   ╭─< CSS-in-JS for Console >─╮
   │ █▀▀ █▀█ █▄░█ █▀ █▀█ █     │
   │ █▄▄ █▄█ █░▀█ ▄█ █▄█ █▄▄   │
@@ -183,3 +186,10 @@ npm run format
 ## License
 
 MIT © [DragorWW](mailto:dragorww@gmail.com) [website](https://DragorWW.space)
+
+## Links
+
+- [GitHub Repository](https://github.com/DragorWW/console-style)
+- [NPM Package](https://www.npmjs.com/package/@dragorww/console-style)
+- [Documentation](https://dragorww.github.io/console-style/)
+- [Issues](https://github.com/DragorWW/console-style/issues)
