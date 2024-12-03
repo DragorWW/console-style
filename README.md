@@ -13,7 +13,7 @@
 ## Installation
 
 ```bash
-npm install console-style
+npm install @dragorww/console-style
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ npm install console-style
 ![alt text](image.png)
 
 ```typescript
-import { console$, style, _ } from "console-style";
+import { console$, style, _ } from "@dragorww/console-style";
 
 const mono = style({ fontFamily: "monospace", fontSize: "12px" });
 const bold = style({ fontWeight: "bold" });
@@ -73,7 +73,7 @@ console$(style({})`
 ### Basic Usage
 
 ```javascript
-import { console$, style } from "console-style";
+import { console$, style } from "@dragorww/console-style";
 
 // Simple text
 console$("Hello World");
@@ -94,7 +94,7 @@ console$(
 ### Multiple Styles
 
 ```javascript
-import { console$, style } from "console-style";
+import { console$, style } from "@dragorww/console-style";
 
 console$([
   style({ color: "red" })`Error: `,
@@ -105,7 +105,7 @@ console$([
 ### Style Composition
 
 ```javascript
-import { console$, style, _ } from "console-style";
+import { console$, style, _ } from "@dragorww/console-style";
 
 const error = style({ color: "red" });
 const bold = style({ fontWeight: "bold" });
@@ -117,7 +117,7 @@ console$(_(error, bold)`Important error message`);
 ### String Interpolation
 
 ```javascript
-import { console$, style } from "console-style";
+import { console$, style } from "@dragorww/console-style";
 
 const name = "World";
 console$(style({ color: "green" })`Hello ${name}!`);
