@@ -1,4 +1,4 @@
-import { console$, style, _ } from "../dist/console$.mjs";
+import { console$, style, _ } from "../src/console$.ts";
 
 // Определяем стили для консоли
 const purple = style({ color: "#8B5CF6" });
@@ -24,7 +24,7 @@ const showLogo = () => {
         ${purple`  ╭─< CSS-in-JS for Console >─╮`}
         ${orange`  │ █▀▀ █▀█ █▄░█ █▀ █▀█ █     │`}
         ${orange`  │ █▄▄ █▄█ █░▀█ ▄█ █▄█ █▄▄   │`}
-          ${gray`  │ ▔▔▔ $ T Y L E ▔▔▔ v1.0    │`}
+        ${gray`  │ ▔▔▔ $ T Y L E ▔▔▔ v1.0    │`}
         ${purple`  ╰───────────────────────────╯`}
     `);
 };

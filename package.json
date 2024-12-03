@@ -1,6 +1,7 @@
 {
   "name": "console-style",
   "version": "1.0.0",
+  "homepage": "https://dragorww.github.io/console-style/",
   "description": "✨ Styled console for and browser 🎨 💅",
   "main": "dist/console$.js",
   "module": "dist/console$.mjs",
@@ -13,7 +14,10 @@
     "build": "npm run build:cjs && npm run build:esm",
     "build:cjs": "tsc",
     "build:esm": "vite build",
-    "clean": "rimraf dist",
+    "build:site": "npm run build && vite build -c vite.site.config.ts",
+    "clean": "rimraf dist dist-site",
+    "dev": "vite -c vite.site.config.ts",
+    "preview": "vite preview -c vite.site.config.ts",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx}\"",
     "test": "vitest"

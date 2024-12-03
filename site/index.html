@@ -37,7 +37,8 @@
         ><code class="language-bash">npm install console-style</code></pre>
 
         <h2>Usage</h2>
-        <pre class="code-block"><code class="language-typescript">
+        <pre class="code-block">
+            <code class="language-typescript">
 import { console$, style } from 'console-style';
 
 // Define styles
@@ -47,7 +48,7 @@ const gray = style({ color: '#94A3B8' });
 
 // ASCII art with styled parts
 console$(style({})`
-  ${purple`  ╭─< CSS-in-JS for Console >─╮`}
+  ${purple`  ╭─&lt; CSS-in-JS for Console &gt;─╮`}
   ${orange`  │ █▀▀ █▀█ █▄░█ █▀ █▀█ █     │`}
   ${orange`  │ █▄▄ █▄█ █░▀█ ▄█ █▄█ █▄▄   │`}
     ${gray`  │ ▔▔▔ $ T Y L E ▔▔▔ v1.0    │`}
@@ -62,7 +63,8 @@ console$([
   style({ color: 'blue', fontWeight: 'bold' })`Info:`,
   style({ color: 'gray' })` Operation completed successfully`
 ]);
-        </code></pre>
+        </code>
+    </pre>
 
         <div class="features">
           <h2>Features</h2>
