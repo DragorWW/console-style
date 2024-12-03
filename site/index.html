@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Console$ - CSS-in-JS for Console</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero">
+        <pre id="logo" class="logo-ascii"></pre>
+        <div class="logo-console">
+          <div class="tooltip-wrapper">
+            <button id="showLogoBtn">Show in Console</button>
+            <div class="tooltip">Press F12 to open DevTools Console</div>
+          </div>
+          <div class="tooltip-wrapper">
+            <button id="showStyledBtn">Show Demo</button>
+            <div class="tooltip">Press F12 to open DevTools Console</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <h2>Installation</h2>
+        <pre
+          class="code-block"
+        ><code class="language-bash">npm install console-style</code></pre>
+
+        <h2>Usage</h2>
+        <pre class="code-block"><code class="language-typescript">
+import { console$, style } from 'console-style';
+
+// Define styles
+const purple = style({ color: '#8B5CF6' });
+const orange = style({ color: '#F97316' });
+const gray = style({ color: '#94A3B8' });
+
+// ASCII art with styled parts
+console$(style({})`
+  ${purple`  ╭─< CSS-in-JS for Console >─╮`}
+  ${orange`  │ █▀▀ █▀█ █▄░█ █▀ █▀█ █     │`}
+  ${orange`  │ █▄▄ █▄█ █░▀█ ▄█ █▄█ █▄▄   │`}
+    ${gray`  │ ▔▔▔ $ T Y L E ▔▔▔ v1.0    │`}
+  ${purple`  ╰───────────────────────────╯`}
+`);
+
+// Simple colored text
+console$(style({ color: 'red' })`Error: Something went wrong`);
+
+// Multiple styles composition
+console$([
+  style({ color: 'blue', fontWeight: 'bold' })`Info:`,
+  style({ color: 'gray' })` Operation completed successfully`
+]);
+        </code></pre>
+
+        <div class="features">
+          <h2>Features</h2>
+          <ul>
+            <li>🎨 CSS-like styling for console output</li>
+            <li>💅 Template literals syntax</li>
+            <li>🚀 Lightweight and zero dependencies</li>
+            <li>📦 Works in all modern browsers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
