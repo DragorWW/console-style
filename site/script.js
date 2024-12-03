@@ -20,13 +20,13 @@ document.getElementById("logo").textContent = logoAscii;
 
 // Функции для консоли
 const showLogo = () => {
-  console$(style({})`
+  console$`
         ${purple`  ╭─< CSS-in-JS for Console >─╮`}
         ${orange`  │ █▀▀ █▀█ █▄░█ █▀ █▀█ █     │`}
         ${orange`  │ █▄▄ █▄█ █░▀█ ▄█ █▄█ █▄▄   │`}
         ${gray`  │ ▔▔▔ $ T Y L E ▔▔▔ v1.0    │`}
         ${purple`  ╰───────────────────────────╯`}
-    `);
+    `;
 };
 
 const showStyled = () => {

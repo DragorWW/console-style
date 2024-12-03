@@ -9,8 +9,14 @@ export interface StyledResult {
   parts: StylePart[];
 }
 
-export type ConsoleInput = string | StyledResult | StylePart[] | StylePart;
 export type StyleFunction = (
-  strings: string[] | TemplateStringsArray,
+  strings: TemplateStringsArray | string[],
   ...values: unknown[]
 ) => StyledResult;
+
+export type ConsoleInput =
+  | string
+  | StylePart
+  | StylePart[]
+  | StyledResult
+  | { parts: StylePart[] };

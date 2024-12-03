@@ -2,21 +2,43 @@ import { ConsoleInput, StylePart, StyledResult, StyleFunction } from "./types";
 
 const CONSOLE_STYLE_PREFIX = "%c" as const;
 
-export function console$(input: ConsoleInput): void {
+export function console$(
+  strings: TemplateStringsArray | ConsoleInput,
+  ...values: unknown[]
+): void {
+  if (Array.isArray(strings) && "raw" in strings) {
+    const parts: StylePart[] = [];
+    strings.forEach((str, i) => {
+      if (str) parts.push({ text: String(str), style: {} });
+      if (i < values.length) {
+        const value = values[i];
+        if (value && typeof value === "object" && "parts" in value) {
+          parts.push(...(value as StyledResult).parts);
+        } else if (value && typeof value === "object" && "text" in value) {
+          parts.push(value as StylePart);
+        } else if (value !== undefined) {
+          parts.push({ text: String(value), style: {} });
+        }
+      }
+    });
+    console$({ parts } as ConsoleInput);
+    return;
+  }
+
   const parts: StylePart[] =
-    typeof input === "string"
-      ? [style({})`${input}`].flatMap((r: StyledResult) => r.parts)
-      : "parts" in input
-        ? input.parts
-        : Array.isArray(input)
-          ? input
-          : [input];
+    typeof strings === "string"
+      ? [{ text: strings, style: {} }]
+      : "parts" in strings
+        ? strings.parts
+        : Array.isArray(strings)
+          ? (strings as StylePart[])
+          : [strings as StylePart];
 
   const [output, ...styles] = parts.reduce<[string, ...string[]]>(
     ([out, ...styles], part) => [
       out + CONSOLE_STYLE_PREFIX + part.text,
       ...styles,
-      Object.entries(part.style)
+      Object.entries(part.style || {})
         .map(
           ([k, v]) =>
             `${k.replace(/[A-Z]/g, (m) => "-" + m.toLowerCase())}:${v}`
@@ -68,13 +90,18 @@ export function _(...styles: StyleFunction[]) {
         ? Array.from(strings)
         : strings;
     const result = styles[0](stringsArray, ...values);
+    const combinedStyle = styles.reduce(
+      (acc, fn) => ({ ...acc, ...fn([""]).style }),
+      {}
+    );
 
     return {
       ...result,
-      style: styles.reduce(
-        (acc, fn) => ({ ...acc, ...fn([""]).style }),
-        result.style
-      ),
+      style: combinedStyle,
+      parts: result.parts.map((part) => ({
+        ...part,
+        style: { ...combinedStyle },
+      })),
     };
   };
 }

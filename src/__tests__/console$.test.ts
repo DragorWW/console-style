@@ -33,6 +33,24 @@ describe("console$", () => {
       "color:blue"
     );
   });
+
+  it("should handle simple string input", () => {
+    const mono = style({ fontFamily: "monospace", fontSize: "12px" });
+    const contact = _(style({ color: "#E2C08D" }), mono);
+
+    console$`
+      ${contact`→ Telegram:`} @dragorww
+      `;
+
+    expect(consoleLogSpy).toHaveBeenCalledWith(
+      `%c
+      %c→ Telegram:%c @dragorww
+      `,
+      "",
+      "color:#E2C08D;font-family:monospace;font-size:12px",
+      ""
+    );
+  });
 });
 
 describe("style function", () => {
